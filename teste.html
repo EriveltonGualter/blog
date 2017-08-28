@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+
+<meta name="author" content="Erivelton Gualter" />
+<meta name="description" content="With NodeMCU HTTP Module we can GET/POST/PUT/DELETE over HTTP(S), as well as customized requests. If you ever used any other programming language you know how easy is to make an HTTP request. Today, we&#39;re going to call Pushbullet API. So, what&#39;s Pushbullet? Pushbullet bridges the gap …" />
+<meta name="keywords" content="">
+
+<meta property="og:site_name" content="Erivelton' Homepage"/>
+<meta property="og:title" content="Notebook 1"/>
+<meta property="og:description" content="With NodeMCU HTTP Module we can GET/POST/PUT/DELETE over HTTP(S), as well as customized requests. If you ever used any other programming language you know how easy is to make an HTTP request. Today, we&#39;re going to call Pushbullet API. So, what&#39;s Pushbullet? Pushbullet bridges the gap …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./teste.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-08-28 10:01:00-05:00"/>
+<meta property="article:modified_time" content="2017-08-28 10:50:00-05:00"/>
+<meta property="article:author" content="./author/erivelton-gualter.html">
+<meta property="article:section" content="teste"/>
+<meta property="og:image" content="">
+
+  <title>Erivelton' Homepage &ndash; Notebook 1</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="" title="">
+      </a>
+      <h1><a href="."></a></h1>
+
+<p>Automation and Control Engineer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="./pages/about.html#about">About</a></li>
+          <li><a href="./pages/contact.html#contact">Contact</a></li>
+
+          <li><a href="https://eriveltongualter.github.io/" target="_blank">Old Homepage</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/EriveltonGualter" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/EriveltonGualter" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/EGualter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href=".">    Home
+</a>
+
+      <a href="/blog/archives.html">Archives</a>
+      <a href="/blog/categories.html">Categories</a>
+      <a href="/blog/tags.html">Tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="teste">Notebook 1</h1>
+    <p>
+          Posted on August 28, 2017 in <a href="./category/teste.html">teste</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>With <a href="https://nodemcu.readthedocs.io/en/master/en/modules/http/">NodeMCU HTTP Module</a> we can GET/POST/PUT/DELETE over HTTP(S), as well as customized requests. If you ever used any other programming language you know how easy is to make an HTTP request.</p>
+<p>Today, we're going to call <a href="https://www.pushbullet.com">Pushbullet</a> API. So, what's Pushbullet?</p>
+<blockquote>
+<p>Pushbullet bridges the gap between your phone, tablet, and computer, enabling them to work better together. From seeing your phone's notifications on your computer, to easily transferring links, files, and more between devices.</p>
+</blockquote>
+<p>Pushbullet is a great tool to get notifications on your phone. Let's assume we have a fire sensor at home. If the fire sensor detects something, it would be good to be notified if we aren't at home. We can do this over Pushbullet or another platform.</p>
+<p>teste:</p>
+<ul>
+<li>hdhhd</li>
+<li>ksdjdjd</li>
+</ul>
+<p>The sample code below shows how to send the current IP.</p>
+<div class="highlight"><pre><span></span><span class="c1">-- your setup.</span>
+<span class="n">PUSHBULLET_TOKEN</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">WIFI_SSID</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">WIFI_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">wifi</span><span class="p">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">wifi</span><span class="p">.</span><span class="n">STATION</span><span class="p">)</span>
+
+<span class="c1">-- on connect send the current IP to pushbullet.</span>
+<span class="n">wifi</span><span class="p">.</span><span class="n">sta</span><span class="p">.</span><span class="n">eventMonReg</span><span class="p">(</span><span class="n">wifi</span><span class="p">.</span><span class="n">STA_GOTIP</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">wifi</span><span class="p">.</span><span class="n">sta</span><span class="p">.</span><span class="n">getip</span><span class="p">()</span>
+
+    <span class="n">http</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://api.pushbullet.com/v2/pushes&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Content-Type: application/json</span><span class="se">\r\n</span><span class="s1">Access-Token: &#39;</span><span class="o">..</span> <span class="n">PUSHBULLET_TOKEN</span> <span class="o">..</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;{&quot;body&quot;:&quot;IP: &#39;</span><span class="o">..</span> <span class="n">ip</span> <span class="o">..</span><span class="s1">&#39;&quot;, &quot;title&quot;:&quot;ESP Connected&quot;, &quot;type&quot;:&quot;note&quot;}&#39;</span><span class="p">,</span>
+    <span class="kr">function</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="c1">-- print the response code. 200 if success.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="c1">-- configure wifi and connect.</span>
+<span class="n">wifi</span><span class="p">.</span><span class="n">sta</span><span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">,</span> <span class="n">WIFI_PASSWORD</span><span class="p">)</span>
+<span class="n">wifi</span><span class="p">.</span><span class="n">sta</span><span class="p">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+
+
+<p>This is a very simple example but is good enough for testing purpose.</p>
+<p><strong>Reference</strong></p>
+<ul>
+<li><a href="https://docs.pushbullet.com/">Pushbullet API</a></li>
+<li><a href="https://nodemcu.readthedocs.io/en/master/en/modules/http/">NodeMCU HTTP Module</a></li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+</article>
+
+    <footer>
+<p>&copy;  2017</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Erivelton' Homepage ",
+  "url" : ".",
+  "image": "",
+  "description": "Erivelton Gualter's Thoughts and Writings"
+}
+</script>
+
+</body>
+</html>
