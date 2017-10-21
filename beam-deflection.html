@@ -96,7 +96,7 @@
   <div>
     <p>The goal of this experiment is simply to understand how to handle Image Processing tools in Matlab. Therefore, I recorded a video from the CHMS lab of a bending experiment. The future goals is to evaluate materials composition of a beam using Image Processing toolbox.</p>
 <p>Watch the recorded video:</p>
-<div class="youtube" align="center"><iframe width="640" height="480" src="http://www.youtube.com/embed/FtOtPIsWgH4" frameborder="0"></iframe></div><p>Instead of trying to analyze the video, which I think it is also possible, I created a sequence of images using the following command on Ubuntu:</p>
+<div class="youtube"><iframe src="https://www.youtube.com/embed/FtOtPIsWgH4" width="640" height="480" allowfullscreen seamless frameBorder="0"></iframe></div><p>Instead of trying to analyze the video, which I think it is also possible, I created a sequence of images using the following command on Ubuntu:</p>
 <p><tt class="docutils literal">ffmpeg <span class="pre">-i</span> beam_deflection.mov <span class="pre">-r</span> 1 <span class="pre">-f</span> image2 <span class="pre">beam-%01d.jpg</span></tt></p>
 <p>I started analyzing one image in the matlab, then I created a loop to do with all recorded images. So, I created a matlab script based on the following steps:</p>
 <ol class="arabic simple">
