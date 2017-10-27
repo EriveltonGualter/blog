@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/igor.min.css">
   <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
 
 
@@ -31,7 +31,7 @@
 <meta property="og:url" content="./beam-deflection.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2017-10-21 10:40:00-05:00"/>
-<meta property="article:modified_time" content="2017-10-21 12:47:00-05:00"/>
+<meta property="article:modified_time" content="2017-10-27 01:08:00-05:00"/>
 <meta property="article:author" content="./author/erivelton-gualter.html">
 <meta property="article:section" content="research"/>
 <meta property="article:tag" content="beam deflection"/>
@@ -49,7 +49,7 @@
       </a>
       <h1><a href="."></a></h1>
 
-<p>Automation and Control Engineer</p>
+<p>PhD Student at Cleveland State University</p>
       <nav>
         <ul class="list">
           <li><a href="./pages/about.html#about">About</a></li>
@@ -97,8 +97,9 @@
     <p>The goal of this experiment is simply to understand how to handle Image Processing tools in Matlab. Therefore, I recorded a video from the CHMS lab of a bending experiment. The future goals is to evaluate materials composition of a beam using Image Processing toolbox.</p>
 <p>Watch the following video:</p>
 <div class="youtube"><iframe src="https://www.youtube.com/embed/FtOtPIsWgH4" width="640" height="480" allowfullscreen seamless frameBorder="0"></iframe></div><p>Instead of trying to analyze the video, which I think it is also possible, I created a sequence of images using the following command on Ubuntu:</p>
-<p><tt class="docutils literal">ffmpeg <span class="pre">-i</span> beam_deflection.mov <span class="pre">-r</span> 1 <span class="pre">-f</span> image2 <span class="pre">beam-%01d.jpg</span></tt></p>
-<p>I started analyzing one image in the matlab, then I created a loop to do with all recorded images. So, I created a matlab script based on the following steps:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ffmpeg -i beam_deflection.mov -r <span class="pgcssm">1</span> -f image2 beam-%01d.jpg
+</pre></div>
+</td></tr></table><p>I started analyzing one image in the matlab, then I created a loop to do with all recorded images. So, I created a matlab script based on the following steps:</p>
 <ol class="arabic simple">
 <li>Read image using the imread;</li>
 <li>Convert to grayscale using the rgb2gray;</li>
@@ -112,10 +113,11 @@
 <img alt="alternate text" src="images/step.png" style="width: 400px;" />
 </div>
 <p>The last step was to generate a .gif image. For this task I used:</p>
-<p><tt class="docutils literal">convert <span class="pre">-delay</span> 100 <span class="pre">-loop</span> *.png output.gif</tt></p>
-<p>Check the final results:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>convert -delay <span class="pgcssm">100</span> -loop *.png output.gif
+</pre></div>
+</td></tr></table><p>Check the final results:</p>
 <div class="figure align-center">
-<img alt="" src="images/output.gif" style="height: 400px;" />
+<img alt="" src="images/output.gif" style="width: 400px;" />
 </div>
 <div class="section" id="references">
 <h2>References</h2>
