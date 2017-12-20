@@ -97,7 +97,7 @@
     <p>The goal of this experiment is simply to understand how to handle Image Processing tools in Matlab. Therefore, I recorded a video from the CHMS lab of a bending experiment. The future goals is to evaluate materials composition of a beam using Image Processing toolbox.</p>
 <p>Watch the following video:</p>
 <div class="youtube"><iframe src="https://www.youtube.com/embed/FtOtPIsWgH4" width="640" height="480" allowfullscreen seamless frameBorder="0"></iframe></div><p>Instead of trying to analyze the video, which I think it is also possible, I created a sequence of images using the following command on Ubuntu:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ffmpeg -i beam_deflection.mov -r <span class="pgcssm">1</span> -f image2 beam-%01d.jpg
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ffmpeg -i beam_deflection.mov -r <span class="m">1</span> -f image2 beam-%01d.jpg
 </pre></div>
 </td></tr></table><p>I started analyzing one image in the matlab, then I created a loop to do with all recorded images. So, I created a matlab script based on the following steps:</p>
 <ol class="arabic simple">
@@ -113,7 +113,7 @@
 <img alt="alternate text" src="images/step.png" style="width: 400px;" />
 </div>
 <p>The last step was to generate a .gif image. For this task I used:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>convert -delay <span class="pgcssm">100</span> -loop *.png output.gif
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>convert -delay <span class="m">100</span> -loop *.png output.gif
 </pre></div>
 </td></tr></table><p>Check the final results:</p>
 <div class="figure align-center">
@@ -141,6 +141,21 @@
     <div class="addthis_relatedposts_inline">
 
 
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'eriveltongualter';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
 </article>
 
     <footer>
